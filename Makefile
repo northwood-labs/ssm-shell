@@ -159,13 +159,13 @@ flatten-docs:
 tag:
 	@ if [ $$(git status -s -uall | wc -l) != 1 ]; then echo 'ERROR: Git workspace must be clean.'; exit 1; fi;
 
-	@echo "This release will be tagged as: $$(cat ./VERSION)"
+	@echo "This release will be tagged as: v$$(cat ./VERSION)"
 	@echo "This version should match your release. If it doesn't, re-run 'make version'."
 	@echo "---------------------------------------------------------------------"
 	@read -p "Press any key to continue, or press Control+C to cancel. " x;
 
 	@echo " "
-	@chag update $$(cat ./VERSION)
+	@chag update v$$(cat ./VERSION)
 	@echo " "
 
 	@echo "These are the contents of the CHANGELOG for this release. Are these correct?"
@@ -178,7 +178,7 @@ tag:
 	@echo " "
 
 	git add .
-	git commit -a -m "Preparing the $$(cat ./VERSION) release."
+	git commit -a -m "Preparing the v$$(cat ./VERSION) release."
 	chag tag --sign
 
 .PHONY: version
