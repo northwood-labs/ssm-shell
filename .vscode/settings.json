@@ -1,0 +1,63 @@
+{
+  "alignment.chars": {
+    ":": {
+      "spaceBefore": 0,
+      "spaceAfter": 1
+    },
+    "::": {
+      "spaceBefore": 0,
+      "spaceAfter": 0
+    },
+    "=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "===": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "==": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "=>": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "+=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "-=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "*=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    },
+    "/=": {
+      "spaceBefore": 1,
+      "spaceAfter": 1
+    }
+  },
+  "aws.profile": "add",
+  "diffEditor.codeLens": true,
+  "files.autoSave": "onWindowChange",
+  "files.defaultLanguage": "${activeEditorLanguage}",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "problems.showCurrentInStatus": true,
+  "python.formatting.provider": "yapf",
+  "restructuredtext.languageServer.disabled": true,
+  "search.showLineNumbers": true,
+  "search.useGlobalIgnoreFiles": true,
+  "[terraform]": {
+    "editor.formatOnSave": true
+  },
+  "terraform-ls.experimentalFeatures": {
+    "validateOnSave": true
+  }
+}

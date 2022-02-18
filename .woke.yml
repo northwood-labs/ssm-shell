@@ -1,0 +1,26 @@
+# WOKE
+#   https://github.com/get-woke/woke
+#
+# Default rules, always applied:
+#   https://github.com/get-woke/woke/blob/main/internal/rule/default.yaml
+
+# Focus on first-party code and writing.
+ignore_files:
+  - .venv/*
+  - "*/.golangci.yml" # currently uses "whitelist" as a config keyword
+  - CHANGELOG.md # references external branch names; no easy way to inline-ignore
+  - docs/* # we scan markdown/* instead
+
+# https://github.com/github/renaming
+# https://github.com/skyzyx/gender-decoder/blob/master/app/wordlists.py
+rules:
+  - name: master
+    terms:
+      - master
+      - master-branch
+    alternatives:
+      - main
+      - main-branch
+    severity: warning
+    options:
+      word_boundary: false

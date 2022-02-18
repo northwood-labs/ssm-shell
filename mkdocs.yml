@@ -1,0 +1,97 @@
+# Project Info
+site_name: SSM Shell
+site_description: >-
+  This is my description.
+
+# Repository
+repo_url: https://github.com/northwood-labs/ssm-shell/
+repo_name: ssm-shell
+edit_uri: edit/main/markdown/
+docs_dir: markdown/
+
+# Configuration
+theme:
+  name: material
+  # custom_dir: overrides
+  include_search_page: true
+  search_index_only: true
+  language: en
+  favicon: img/favicon.ico
+  icon:
+    logo: octicons/graph-24
+    repo: fontawesome/brands/github
+  font: false
+  palette:
+    scheme: preference
+    accent: indigo
+  features:
+    - instant
+    - search.highlight
+    - header.hide
+
+# Custom CSS
+extra_css:
+  - static/styles.css
+
+# Custom JS
+# extra_javascript:
+#   - static/scripts.js
+
+module_name: markdown-macros
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      use_pygments: true
+      # linenums: true
+      # linenums_style: pymdownx.inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      toc_depth: 5
+      permalink: true
+      # slugify: pymdownx.slugs.uslugify
+  - pymdownx.tabbed
+  - pymdownx.tilde
+
+# Plugins
+plugins:
+  - git-revision-date
+  - git-revision-date-localized:
+      type: timeago
+      fallback_to_build_date: true
+  - macros
+  - search:
+      prebuild_index: true
+      lang:
+        - en
+
+# Social Icons
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/northwood-labs/ssm-shell/
+
+# Navigation
+nav:
+  - index.md
+  - Section:
+      - features-autocomplete.md
+  - troubleshooting.md

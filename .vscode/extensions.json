@@ -1,0 +1,53 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
+    "aleksandra.go-group-imports",
+    "amazonwebservices.aws-toolkit-vscode",
+    "annsk.alignment",
+    "bierner.markdown-preview-github-styles",
+    "bin3377.iam-policy",
+    "christian-kohler.path-intellisense",
+    "cmacu.gotoanything",
+    "codezombiech.gitignore",
+    "darkriszty.markdown-table-prettify",
+    "davidanson.vscode-markdownlint",
+    "deerawan.vscode-dash",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "fcrespo82.markdown-table-formatter",
+    "foxundermoon.shell-format",
+    "golang.go",
+    "gruntfuggly.todo-tree",
+    "gurumukhi.selected-lines-count",
+    "hashicorp.terraform",
+    "hcltechnologies.hclappscancodesweep",
+    "jfrog.jfrog-vscode-extension",
+    "lamartire.git-indicators",
+    "mads-hartmann.bash-ide-vscode",
+    "mohsen1.prettify-json",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "msyrus.go-doc",
+    "neverik.go-critic",
+    "quicktype.quicktype",
+    "rogalmic.bash-debug",
+    "sonarsource.sonarlint-vscode",
+    "steefh.terraform-documentation-links",
+    "stkb.rewrap",
+    "timonwong.shellcheck",
+    "tyriar.sort-lines",
+    "usernamehw.errorlens",
+    "visualstudioexptteam.vscodeintellicode",
+    "yzhang.markdown-all-in-one",
+  ],
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": [
+    "googlecloudtools.cloudcode",
+    "mindaro.mindaro",
+    "ms-azuretools.vscode-azureterraform",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+  ]
+}
