@@ -9,7 +9,6 @@ Simplifies the process of connecting to EC2 instances using AWS Session Manager 
 | **Owner(s)**    | [@northwood-labs](https://github.com/northwood-labs), [@skyzyx](https://github.com/skyzyx) |
 | **Go Versions** | 1.17                                                                                       |
 
-
 ## Why AWS Session Manager?
 
 SSH is old-school, error-prone, and easy to get wrong.
