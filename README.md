@@ -2,6 +2,14 @@
 
 Simplifies the process of connecting to EC2 instances using AWS Session Manager when you have many instances.
 
+[![Go documentation](https://img.shields.io/badge/pkg.go.dev-documentation-informational?style=flat-square&logo=go)](https://pkg.go.dev/github.com/northwood-labs/ssm-shell)
+
+| Information     | Description                                                                                |
+|-----------------|--------------------------------------------------------------------------------------------|
+| **Owner(s)**    | [@northwood-labs](https://github.com/northwood-labs), [@skyzyx](https://github.com/skyzyx) |
+| **Go Versions** | 1.17                                                                                       |
+
+
 ## Why AWS Session Manager?
 
 SSH is old-school, error-prone, and easy to get wrong.
