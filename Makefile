@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # Global variables.
 
-GO=/usr/local/bin/go
+GO=$(shell which go)
 
 #-------------------------------------------------------------------------------
 # Running `make` will show the list of subcommands that will run.
