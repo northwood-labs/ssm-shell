@@ -91,6 +91,8 @@ The **AWS CLI** is a command-line tool for interacting with AWS services. Creden
 
 This will fetch the list of running instances over the EC2 API and respond with an interactive prompt. Hit `Tab` to pop into the interactive UI, and scroll until you find the instance you want. Press `Return`, and you will connect to that instance in your terminal.
 
+<img src="https://github.com/northwood-labs/ssm-shell/raw/main/screenshot.png" width="886">
+
 Use `Control+D` to exit your session.
 
 ### Using AWS Vault, AWS Okta, or similar
