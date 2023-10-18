@@ -84,7 +84,7 @@ The **AWS CLI** is a command-line tool for interacting with AWS services. Creden
 1. Once you've done everything above, you can use `go install`.
 
     ```bash
-    go install github.com/northwood-labs/ssm-shell
+    go install github.com/northwood-labs/ssm-shell@latest
     ```
 
 ## Usage
