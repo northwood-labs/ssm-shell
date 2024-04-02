@@ -61,8 +61,7 @@ secure and does not require the need to manage SSH keys.
 					return func() {
 						insts, e := aws.GetEC2Instances()
 						if e != nil {
-							logger.Error(e)
-							os.Exit(1)
+							logger.Fatal(e)
 						}
 
 						// Sort by text
@@ -76,8 +75,7 @@ secure and does not require the need to manage SSH keys.
 				Run()
 
 			if err != nil {
-				logger.Error(err)
-				os.Exit(1)
+				logger.Fatal(err)
 			}
 
 			options := []huh.Option[string]{}
@@ -131,6 +129,6 @@ secure and does not require the need to manage SSH keys.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
-		os.Exit(1)
+		logger.Fatal(err)
 	}
 }
