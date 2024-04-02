@@ -1,0 +1,77 @@
+---
+# A .goplicate.yaml configuration file that tells goplicate
+# which "target" files to sync, where to take the "source"
+# configurations from, and how to fill parameter values.
+
+sync-config:
+  path: .goplicate.yaml
+  source:
+    repository: /tmp/terraform-makefile
+    path: updates/.goplicate.yaml
+
+targets:
+  # goplicate-start:file
+  - path: .github/dependabot.yml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/.github/dependabot.yml
+      sync-initial: true
+
+  - path: .gitignore
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/.gitignore
+      sync-initial: true
+
+  - path: .pre-commit-config.yaml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/.pre-commit-config.yaml
+      sync-initial: true
+
+  - path: .vscode/extensions.json
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/.vscode/extensions.tmpl.jsonc
+      sync-initial: true
+
+  - path: .vscode/settings.json
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/.vscode/settings.tmpl.jsonc
+      sync-initial: true
+
+  - path: cliff.toml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/cliff.tmpl.toml
+      sync-initial: true
+
+  - path: ecrc.toml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/ecrc.toml
+      sync-initial: true
+
+  - path: SECURITY.md
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/SECURITY.md
+      sync-initial: true
+  # goplicate-end:file
+
+  # goplicate-start:go
+  - path: .golangci.yml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/go/.golangci.yml
+      sync-initial: false
+  # goplicate-end:go
+
+  # goplicate-end:tf
+  - path: versions.tf
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/tf/versions.tf
+      sync-initial: false
+  # goplicate-end:tf

@@ -1,53 +1,104 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
-  // List of extensions which should be recommended for users of this workspace.
+  /*
+  https://github.com/ilaif/goplicate
+  */
   "recommendations": [
-    "aleksandra.go-group-imports",
-    "amazonwebservices.aws-toolkit-vscode",
+    // goplicate-start:always
+    "albymor.increment-selection",
     "annsk.alignment",
-    "bierner.markdown-preview-github-styles",
-    "bin3377.iam-policy",
+    "arahata.linter-actionlint",
+    "chdsbd.github-code-owners",
     "christian-kohler.path-intellisense",
-    "cmacu.gotoanything",
-    "codezombiech.gitignore",
-    "darkriszty.markdown-table-prettify",
-    "davidanson.vscode-markdownlint",
-    "deerawan.vscode-dash",
+    "claui.email-addresses",
+    "Cmacu.gotoanything",
+    "DavidWang.ini-for-vscode",
+    "donjayamanne.git-extension-pack",
     "donjayamanne.githistory",
+    "dt.ghlink",
     "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "fcrespo82.markdown-table-formatter",
-    "foxundermoon.shell-format",
-    "golang.go",
-    "gruntfuggly.todo-tree",
+    "EditorConfig.EditorConfig",
+    "elagil.pre-commit-helper",
+    "emeraldwalk.RunOnSave",
+    "ExodiusStudios.comment-anchors",
+    "fnando.linter",
+    "GitHub.copilot",
+    "GitHub.remotehub",
+    "GitHub.vscode-codeql",
+    "github.vscode-github-actions",
+    "GitHub.vscode-pull-request-github",
     "gurumukhi.selected-lines-count",
-    "hashicorp.terraform",
-    "hcltechnologies.hclappscancodesweep",
-    "jfrog.jfrog-vscode-extension",
-    "lamartire.git-indicators",
-    "mads-hartmann.bash-ide-vscode",
+    "IBM.output-colorizer",
+    "kevinkyang.auto-comment-blocks",
+    "logerfo.json-trimmer",
+    "melt-inc.yamlfmt-vscode",
+    "mhutchie.git-graph",
+    "mkhl.direnv",
     "mohsen1.prettify-json",
-    "ms-python.python",
-    "ms-python.vscode-pylance",
-    "msyrus.go-doc",
-    "neverik.go-critic",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "ms-vscode.test-adapter-converter",
+    "nhoizey.gremlins",
+    "oliversturm.fix-json",
+    "pflannery.vscode-versionlens",
+    "qezhu.gitlink",
     "quicktype.quicktype",
-    "rogalmic.bash-debug",
-    "sonarsource.sonarlint-vscode",
-    "steefh.terraform-documentation-links",
+    "redhat.vscode-yaml",
+    "sidneys1.gitconfig",
     "stkb.rewrap",
-    "timonwong.shellcheck",
-    "tyriar.sort-lines",
+    "tamasfe.even-better-toml",
+    "technosophos.vscode-make",
+    "Tyriar.sort-lines",
     "usernamehw.errorlens",
-    "visualstudioexptteam.vscodeintellicode",
+    "wmaurer.change-case",
+    "xshrim.txt-syntax",
+    "zardoy.fix-all-json",
+    "ziyasal.vscode-open-in-github",
+    // goplicate-end:always
+    //
+    // goplicate-start:aws
+    "bin3377.iam-policy",
+    // goplicate-end:aws
+    //
+    // goplicate-start:golang
+    "akshayn.GoGet",
+    "golang.go",
+    "MaxMedia.go-prof",
+    "msyrus.go-doc",
+    "premparihar.gotestexplorer",
+    "windmilleng.vscode-go-autotest",
+    // goplicate-end:golang
+    //
+    // goplicate-start:markdown
+    "arr.marksman",
+    "bierner.markdown-checkbox",
+    "bierner.markdown-preview-github-styles",
+    "bierner.markdown-yaml-preamble",
+    "DavidAnson.vscode-markdownlint",
+    "fcrespo82.markdown-table-formatter",
     "yzhang.markdown-all-in-one",
+    // goplicate-end:markdown
+    //
+    // goplicate-start:security
+    "1Password.op-vscode",
+    "anchoreinc.grype-vscode",
+    "AquaSecurityOfficial.trivy-vulnerability-scanner",
+    "jflbr.jwt-decoder",
+    "MS-SarifVSCode.sarif-viewer",
+    "redhat.fabric8-analytics",
+    "snyk-security.snyk-vulnerability-scanner",
+    // goplicate-end:security
+    //
+    // goplicate-start:shell
+    "foxundermoon.shell-format",
+    "jetmartin.bats",
+    "mads-hartmann.bash-ide-vscode",
+    "Remisa.shellman",
+    "rogalmic.bash-debug",
+    // goplicate-end:shell
   ],
-  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": [
-    "googlecloudtools.cloudcode",
-    "mindaro.mindaro",
     "ms-azuretools.vscode-azureterraform",
-    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "GoogleCloudTools.cloudcode",
+    "vscodevim.vim",
   ]
 }

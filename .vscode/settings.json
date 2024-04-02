@@ -1,4 +1,14 @@
 {
+  // goplicate-start:always
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "alignment.chars": {
     ":": {
       "spaceBefore": 0,
@@ -41,23 +51,352 @@
       "spaceAfter": 1
     }
   },
-  "aws.profile": "add",
-  "diffEditor.codeLens": true,
-  "files.autoSave": "onWindowChange",
-  "files.defaultLanguage": "${activeEditorLanguage}",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "editor.experimental.asyncTokenization": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "strings": "on",
+    "other": "on"
+  },
+  "editor.suggest.showMethods": true,
+  "editor.tabSize": 4,
+  "editor.trimAutoWhitespace": true,
+  "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+  "editor.wordWrap": "off",
+  "editor.suggest.preview": true,
+  "editorconfig.generateAuto": true,
+  "editorconfig.template": "default",
+  "errorLens.messageTemplate": "[$severity] $message [$source $code]",
+  "evenBetterToml.completion.maxKeys": 5,
+  "evenBetterToml.formatter.alignComments": true,
+  "evenBetterToml.formatter.alignEntries": true,
+  "evenBetterToml.formatter.allowedBlankLines": 1,
+  "evenBetterToml.formatter.arrayAutoCollapse": false,
+  "evenBetterToml.formatter.arrayAutoExpand": true,
+  "evenBetterToml.formatter.arrayTrailingComma": true,
+  "evenBetterToml.formatter.columnWidth": 120,
+  "evenBetterToml.formatter.compactArrays": false,
+  "evenBetterToml.formatter.compactEntries": false,
+  "evenBetterToml.formatter.crlf": false,
+  "evenBetterToml.formatter.indentEntries": true,
+  "evenBetterToml.formatter.indentString": "  ",
+  "evenBetterToml.formatter.indentTables": true,
+  "evenBetterToml.formatter.inlineTableExpand": true,
+  "evenBetterToml.formatter.reorderKeys": true,
+  "evenBetterToml.formatter.trailingNewline": true,
+  "evenBetterToml.schema.associations": {
+    "^(.*(/|\\\\)\\.?taplo\\.toml|\\.?taplo\\.toml)$": "taplo://taplo.toml"
+  },
+  "evenBetterToml.schema.enabled": true,
+  "evenBetterToml.schema.links": true,
+  "evenBetterToml.semanticTokens": true,
+  "evenBetterToml.syntax.semanticTokens": true,
+  "evenBetterToml.taplo.bundled": true,
+  "evenBetterToml.taplo.configFile.enabled": true,
+  "files.associations": {
+    ".htmlnanorc": "json",
+    ".parcelrc": "json",
+    ".postcssrc": "json",
+    ".posthtmlrc": "json",
+    ".style.yapf": "ini",
+    ".terraformrc": "hcl",
+    "*.hcl": "terraform",
+    "*.ini": "ini",
+    "*.md": "markdown",
+    "*.sh": "shellscript",
+    "*.tf": "terraform",
+    "*.toml": "toml",
+    "*.xml": "xml",
+    "config": "ini",
+    "Pipfile": "toml"
+  },
+  "files.autoSave": "onFocusChange",
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "problems.showCurrentInStatus": true,
-  "python.formatting.provider": "yapf",
-  "restructuredtext.languageServer.disabled": true,
-  "search.showLineNumbers": true,
-  "search.useGlobalIgnoreFiles": true,
-  "[terraform]": {
-    "editor.formatOnSave": true
+  "formate.additionalSpaces": 0,
+  "formate.alignColon": false,
+  "formate.enable": true,
+  "formate.verticalAlignProperties": false,
+  "git.alwaysSignOff": true,
+  "git.autofetch": true,
+  "git.autoStash": true,
+  "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "always",
+  "gitHistory.alwaysPromptRepositoryPicker": false,
+  "gitHistory.avatarCacheExpiration": 60,
+  "gitHistory.editorTitleButtonOpenRepo": false,
+  "gitHistory.hideCommitViewExplorer": false,
+  "gitHistory.includeRemoteBranches": true,
+  "gitHistory.logLevel": "Info",
+  "gitHistory.pageSize": 100,
+  "gitHistory.showEditorTitleMenuBarIcons": true,
+  "gitHistory.showFileHistorySplit": true,
+  "gitHistory.sourceCodeProviderIntegrationLocation": "Inline",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": true,
+    "go.mod": false,
+    "markdown": false,
+    "plaintext": false,
+    "yaml": false
   },
-  "terraform-ls.experimentalFeatures": {
-    "validateOnSave": true
-  }
+  "github-actions.use-enterprise": false,
+  "github-actions.workflows.pinned.refresh.enabled": false,
+  "github-actions.workflows.pinned.refresh.interval": 30,
+  "github-code-owners.format.alignment-offset": 4,
+  "github-code-owners.format.enabled": true,
+  "gitlens.fileAnnotations.command": "blame",
+  "gitlens.advanced.abbreviatedShaLength": 8,
+  "gitlens.ai.experimental.generateCommitMessage.enabled": false,
+  "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.cloudPatches.enabled": false,
+  "gitlens.codeLens.enabled": true,
+  "gitlens.detectNestedRepositories": true,
+  "gitlens.focus.allowMultiple": true,
+  "gitlens.gitCommands.avatars": true,
+  "gitlens.hovers.avatarSize": 64,
+  "gitlens.rebaseEditor.ordering": "desc",
+  "gitlens.rebaseEditor.showDetailsView": "selection",
+  "gitlens.telemetry.enabled": true,
+  "gitlens.terminal.overrideGitEditor": true,
+  "gitlens.terminalLinks.enabled": true,
+  "gitlens.terminalLinks.showDetailsView": true,
+  "gitlens.views.lineHistory.avatars": true,
+  "GitLink.defaultRemote": "origin",
+  "GitLink.hostType": "github",
+  "json.schemas": [
+    {
+      "fileMatch": [
+        ".prettierrc",
+        "prettier.config.js"
+      ],
+      "url": "http://json.schemastore.org/prettierrc"
+    },
+    {
+      "fileMatch": [
+        ".markdownlint.*",
+      ],
+      "url": "https://github.com/DavidAnson/markdownlint/raw/main/schema/markdownlint-config-schema.json"
+    },
+  ],
+  "linter.cache": false,
+  "linter.debug": false,
+  "linter.delay": 300,
+  "linter.enabled": true,
+  "linter.runOnTextChange": true,
+  "linter-actionlint.config": {
+    "capabilities": [],
+    "command": [],
+    "configFiles": [
+      "actionlint.yaml",
+      "actionlint.yml"
+    ],
+    "enabled": true,
+    "languages": [
+      "yaml"
+    ],
+    "name": "actionlint",
+    "url": "https://github.com/rhysd/actionlint"
+  },
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "openInGitHub.defaultPullRequestBranch": "main",
+  "openInGitHub.gitHubDomain": "github.com",
+  "openInGitHub.providerProtocol": "https",
+  "openInGitHub.providerType": "github",
+  "openInGitHub.requireSelectionForLines": true,
+  "openInGitHub.useCommitSHAInURL": true,
+  "path-intellisense.absolutePathToWorkspace": false,
+  "path-intellisense.autoSlashAfterDirectory": true,
+  "path-intellisense.autoTriggerNextSuggestion": true,
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.ignoreTsConfigBaseUrl": false,
+  "path-intellisense.showHiddenFiles": false,
+  "path-intellisense.showOnAbsoluteSlash": true,
+  "redhat.telemetry.enabled": false,
+  "rewrap.autoWrap.enabled": false,
+  "scm.alwaysShowActions": true,
+  "scm.alwaysShowRepositories": true,
+  "sortLines.filterBlankLines": true,
+  "testExplorer.addToEditorContextMenu": true,
+  "testExplorer.codeLens": true,
+  "testExplorer.errorDecoration": true,
+  "testExplorer.errorDecorationHover": true,
+  "testExplorer.gutterDecoration": true,
+  "testExplorer.hideEmptyLog": true,
+  "testExplorer.hideWhen": "noTests",
+  "testExplorer.showCollapseButton": true,
+  "testExplorer.showOnRun": true,
+  "testExplorer.sort": "byLabel",
+  "testExplorer.useNativeTesting": true,
+  "testing.showCoverageInExplorer": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "versionlens.caching.duration": 60,
+  "versionlens.http.strictSSL": true,
+  "versionlens.logging.level": "error",
+  "vsintellicode.java.completionsEnabled": false,
+  "vsintellicode.sql.completionsEnabled": false,
+  "yaml.compactSequenceStyle": true,
+  "yaml.completion": true,
+  "yaml.disableAdditionalProperties": false,
+  "yaml.disableDefaultProperties": true,
+  "yaml.extension.recommendations": true,
+  "yaml.format.bracketSpacing": true,
+  "yaml.format.enable": true,
+  "yaml.format.printWidth": 120,
+  "yaml.format.proseWrap": "always",
+  "yaml.format.singleQuote": true,
+  "yaml.hover": true,
+  "yaml.keyOrdering": false,
+  "yaml.schemas": {
+    "https://goreleaser.com/static/schema-pro.json": ".goreleaser.yml",
+    "https://golangci-lint.run/jsonschema/golangci.jsonschema.json": ".golangci-lint.yml"
+  },
+  "yaml.schemaStore.enable": true,
+  "yaml.style.flowSequence": "allow",
+  "yaml.trace.server": "off",
+  "yaml.validate": false,
+  "yaml.yamlVersion": "1.2",
+  // goplicate-end:always
+  //
+  // goplicate-start:aws
+  "aws.resources.enabledResources": [
+    // "AWS::AccessAnalyzer::Analyzer",
+    // "AWS::Athena::NamedQuery",
+    // "AWS::Athena::WorkGroup",
+    // "AWS::CloudTrail::Trail",
+    // "AWS::EC2::Host",
+    // "AWS::IAM::Role",
+    // "AWS::IAM::VirtualMFADevice",
+    // "AWS::KMS::Alias",
+    // "AWS::KMS::ReplicaKey",
+    // "AWS::Logs::LogGroup",
+    // "AWS::Logs::QueryDefinition",
+    // "AWS::Logs::ResourcePolicy",
+    // "AWS::Route53::HostedZone",
+    // "AWS::S3::StorageLens"
+  ],
+  // goplicate-end:aws
+  //
+  // goplicate-start:golang
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.go$",
+        "cmd": "golines --base-formatter=gofumpt --write-output --max-len=120 ${file}"
+      }
+    ]
+  },
+  "go.addTags": {
+    "transform": "camelcase"
+  },
+  "go.delveConfig": {
+    "debugAdapter": "dlv-dap"
+  },
+  "go.diagnostic.vulncheck": "Imports",
+  "go.formatTool": "gofumpt",
+  "go.inlayHints.constantValues": true,
+  "go.installDependenciesWhenBuilding": false,
+  "go.lintOnSave": "package",
+  "go.lintTool": "golangci-lint",
+  "go.tasks.provideDefault": true,
+  "go.terminal.activateEnvironment": true,
+  "go.testExplorer.alwaysRunBenchmarks": true,
+  "go.testExplorer.packageDisplayMode": "nested",
+  "go.testExplorer.showDynamicSubtestsInEditor": true,
+  "go.testExplorer.showOutput": true,
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "go.vetOnSave": "workspace",
+  // goplicate-end:golang
+  //
+  // goplicate-start:markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "fcrespo82.markdown-table-formatter"
+  },
+  "markdown-checkboxes.enable": true,
+  "markdown-checkboxes.label": true,
+  "markdown-checkboxes.labelAfter": true,
+  "markdown.extension.completion.enabled": true,
+  "markdown.extension.completion.respectVscodeSearchExclude": true,
+  "markdown.extension.extraLangIds": [],
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.math.enabled": true,
+  "markdown.extension.orderedList.autoRenumber": true,
+  "markdown.extension.orderedList.marker": "one",
+  "markdown.extension.preview.autoShowPreviewToSide": false,
+  "markdown.extension.print.absoluteImgPath": false,
+  "markdown.extension.print.imgToBase64": false,
+  "markdown.extension.print.includeVscodeStylesheets": false,
+  "markdown.extension.print.validateUrls": false,
+  "markdown.extension.tableFormatter.delimiterRowNoPadding": true,
+  "markdown.extension.tableFormatter.normalizeIndentation": false,
+  "markdown.extension.toc.orderedList": false,
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "markdown.extension.toc.updateOnSave": true,
+  "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
+  "markdown-table-formatter.markdownGrammarScopes": [
+    "markdown",
+    "gohtml",
+    "gotmpl"
+  ],
+  "markdown-table-formatter.removeColonsIfSameAsDefault": true,
+  "markdownlint.run": "onType",
+  // goplicate-end:markdown
+  //
+  // goplicate-start:security
+  "1password.editor.suggestStorage": true,
+  "1password.items.cacheValues": true,
+  "1password.items.passwordRecipe": "letters,digits,symbols,72",
+  "1password.items.useSecretReferences": true,
+  "redHatDependencyAnalytics.vulnerabilityAlertSeverity": "Warning",
+  "redHatDependencyAnalyticsServer.trace.server": "off",
+  "sarif-viewer.connectToGithubCodeScanning": "on",
+  "sarif-viewer.explorer.openWhenNoResults": false,
+  "snyk.features.codeQuality": true,
+  "snyk.features.codeSecurity": true,
+  "snyk.features.infrastructureAsCode": true,
+  "snyk.features.openSourceSecurity": true,
+  "trivy.debug": false,
+  "trivy.fixedOnly": true,
+  "trivy.minimumReportedSeverity": "LOW",
+  "trivy.offlineScan": true,
+  // goplicate-end:security
+  //
+  // goplicate-start:shell
+  "bashIde.backgroundAnalysisMaxFiles": 500,
+  "bashIde.enableSourceErrorDiagnostics": true,
+  "bashIde.globPattern": "**/*@(.sh|.inc|.bash|.command)",
+  "bashIde.includeAllWorkspaceSymbols": true,
+  "bashIde.logLevel": "warning",
+  "shellformat.flag": "--simplify -ln=bash --indent=4 --case-indent --space-redirects --binary-next-line --apply-ignore",
+  "shellformat.useEditorConfig": true,
+  "shellformat.effectLanguages": [
+    "azcli",
+    "bats",
+    // "dockerfile",
+    "dotenv",
+    "gitignore",
+    "hosts",
+    "ignore",
+    "jvmoptions",
+    "properties",
+    "shellscript",
+    "spring-boot-properties"
+  ],
+  // goplicate-end:shell
 }
