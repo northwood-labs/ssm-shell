@@ -16,24 +16,18 @@ package cmd
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
 	"strings"
-	"text/tabwriter"
 
-	"github.com/gookit/color"
+	"github.com/charmbracelet/lipgloss"
+	"github.com/charmbracelet/lipgloss/table"
 	"github.com/northwood-labs/golang-utils/archstring"
-	"github.com/northwood-labs/golang-utils/exiterrorf"
 	"github.com/spf13/cobra"
 )
 
 var (
-	// Color text.
-	colorHeader     = color.New(color.FgWhite, color.BgBlue, color.OpBold)
-	colorUnderlined = color.New(color.OpUnderscore)
-
 	// Version represents the version of the software.
 	Version = "dev"
 
@@ -55,56 +49,54 @@ var (
 		Long: `Long-form version information, including the build commit hash, build date, Go
 version, and external dependencies.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			colorHeader.Println(" BASIC ")
+			fmt.Println(style.Render(" BUILD INFO "))
 
-			w := tabwriter.NewWriter(os.Stdout, 0, 0, 1, ' ', 0)
+			t := table.New().
+				Border(lipgloss.RoundedBorder()).
+				BorderStyle(lipgloss.NewStyle().Foreground(lipgloss.Color("99"))).
+				BorderColumn(true).
+				StyleFunc(func(row, col int) lipgloss.Style {
+					return lipgloss.NewStyle().Padding(0, 1)
+				}).
+				Headers("FIELD", "VALUE")
 
-			fmt.Fprintf(w, " Version:\t%s\t\n", Version)
-			fmt.Fprintf(w, " Go version:\t%s\t\n", runtime.Version())
-			fmt.Fprintf(w, " Git commit:\t%s\t\n", Commit)
+			t.Row("Version", Version)
+			t.Row("Go version", runtime.Version())
+			t.Row("Git commit", Commit)
 			if Dirty == "true" {
-				fmt.Fprintf(w, " Dirty repo:\t%s\t\n", Dirty)
+				t.Row("Dirty repo", Dirty)
 			}
 			if !strings.Contains(PGOEnabled, "false") {
-				fmt.Fprintf(w, " PGO:\t%s\t\n", filepath.Base(PGOEnabled))
+				t.Row("PGO", filepath.Base(PGOEnabled))
 			}
-			fmt.Fprintf(w, " Build date:\t%s\t\n", BuildDate)
-			fmt.Fprintf(w, " OS/Arch:\t%s/%s\t\n", runtime.GOOS, runtime.GOARCH)
-			fmt.Fprintf(w, " System:\t%s\t\n", archstring.GetFriendlyName(runtime.GOOS, runtime.GOARCH))
-			fmt.Fprintf(w, " CPU Cores:\t%d\t\n", runtime.NumCPU())
+			t.Row("Build date", BuildDate)
+			t.Row("OS/Arch", fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH))
+			t.Row("System", archstring.GetFriendlyName(runtime.GOOS, runtime.GOARCH))
+			t.Row("CPU cores", fmt.Sprintf("%d", runtime.NumCPU()))
 
-			err := w.Flush()
-			if err != nil {
-				exiterrorf.ExitErrorf(err)
-			}
-
-			fmt.Println("")
+			fmt.Println(t.Render())
 
 			//----------------------------------------------------------------------
 
 			if buildInfo, ok := debug.ReadBuildInfo(); ok {
-				colorHeader.Println(" DEPENDENCIES ")
+				fmt.Println(style.Render(" DEPENDENCIES "))
 
-				w = tabwriter.NewWriter(os.Stdout, 0, 0, 1, ' ', 0)
+				td := table.New().
+					Border(lipgloss.RoundedBorder()).
+					BorderStyle(lipgloss.NewStyle().Foreground(lipgloss.Color("99"))).
+					BorderColumn(true).
+					StyleFunc(func(row, col int) lipgloss.Style {
+						return lipgloss.NewStyle().Padding(0, 1)
+					}).
+					Headers("DEPENDENCY", "VERSION")
 
 				for i := range buildInfo.Deps {
 					dependency := buildInfo.Deps[i]
-					fmt.Fprintf(w, " %s\t%s\t\n", dependency.Path, dependency.Version)
+					td.Row(dependency.Path, dependency.Version)
 				}
+
+				fmt.Println(td.Render())
 			}
-
-			err = w.Flush()
-			if err != nil {
-				exiterrorf.ExitErrorf(err)
-			}
-
-			// if info, ok := debug.ReadBuildInfo(); ok {
-			// 	for i := range info.Settings {
-			// 		setting := info.Settings[i]
-
-			// 		fmt.Printf("%s = %s\n", setting.Key, setting.Value)
-			// 	}
-			// }
 
 			fmt.Println("")
 		},

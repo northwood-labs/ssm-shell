@@ -15,25 +15,116 @@
 package cmd
 
 import (
+	"fmt"
 	"os"
+	"sort"
+	"strings"
+	"time"
 
+	"github.com/charmbracelet/huh"
+	"github.com/charmbracelet/huh/spinner"
+	"github.com/charmbracelet/lipgloss"
+	"github.com/charmbracelet/log"
+	"github.com/northwood-labs/ssm-shell/aws"
 	"github.com/spf13/cobra"
 )
 
-// rootCmd represents the base command when called without any subcommands
-var rootCmd = &cobra.Command{
-	Use:   "ssm-shell",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+const height = 20
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
-}
+var (
+	instanceID string
+	instances  []aws.Ec2Instance
+
+	logger = log.NewWithOptions(os.Stderr, log.Options{
+		ReportTimestamp: true,
+		TimeFormat:      time.Kitchen,
+		Prefix:          "ssm-shell",
+	})
+
+	// rootCmd represents the base command when called without any subcommands
+	rootCmd = &cobra.Command{
+		Use:   "ssm-shell",
+		Short: "Simplifies the process of connecting to EC2 Instances using AWS Session Manager.",
+		Long: `--------------------------------------------------------------------------------
+ssm-shell
+
+Simplifies the process of connecting to EC2 Instances using AWS Session Manager.
+
+Disabling SSH and leveraging AWS Session Manager to connect to EC2 Instances is
+the recommended approach for managing EC2 Instances. This approach is more
+secure and does not require the need to manage SSH keys.
+--------------------------------------------------------------------------------`,
+		Run: func(cmd *cobra.Command, args []string) {
+			err := spinner.New().
+				Title("Getting EC2 instances for this account...").
+				Action(func(instances *[]aws.Ec2Instance) func() {
+					return func() {
+						insts, e := aws.GetEC2Instances()
+						if e != nil {
+							logger.Error(e)
+							os.Exit(1)
+						}
+
+						// Sort by text
+						sort.SliceStable(insts, func(i, j int) bool {
+							return strings.ToLower(insts[i].Name) < strings.ToLower(insts[j].Name)
+						})
+
+						*instances = insts
+					}
+				}(&instances)).
+				Run()
+
+			if err != nil {
+				logger.Error(err)
+				os.Exit(1)
+			}
+
+			options := []huh.Option[string]{}
+
+			for i := range instances {
+				options = append(
+					options,
+					huh.NewOption(
+						fmt.Sprintf(
+							"%s (%s)",
+							instances[i].Name,
+							instances[i].ID,
+						),
+						instances[i].ID,
+					),
+				)
+			}
+
+			form := huh.NewForm(
+				huh.NewGroup(
+					huh.NewSelect[string]().
+						Title("Connect to which SSM-enabled EC2 instance?").
+						Options(options...).
+						Value(&instanceID).
+						WithHeight(height),
+				),
+			)
+
+			err = form.Run()
+			if err != nil {
+				logger.Fatal(err)
+			}
+
+			fmt.Printf("Connecting to instance %s...\n", instanceID)
+			aws.RunCommand(
+				strings.Split(
+					fmt.Sprintf("aws ssm start-session --target %s", instanceID),
+					" ",
+				),
+			)
+		},
+	}
+
+	style = lipgloss.NewStyle().
+		Bold(true).
+		Border(lipgloss.RoundedBorder())
+)
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
@@ -42,16 +133,4 @@ func Execute() {
 	if err != nil {
 		os.Exit(1)
 	}
-}
-
-func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.ssm-shell.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
