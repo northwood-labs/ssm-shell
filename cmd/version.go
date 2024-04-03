@@ -46,8 +46,8 @@ var (
 	versionCmd = &cobra.Command{
 		Use:   "version",
 		Short: "Long-form version information",
-		Long: `Long-form version information, including the build commit hash, build date, Go
-version, and external dependencies.`,
+		Long: helpText.Render(`Long-form version information, including the build commit hash, build date, Go
+version, and external dependencies.`),
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println(style.Render(" BUILD INFO "))
 

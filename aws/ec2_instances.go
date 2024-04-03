@@ -3,6 +3,7 @@ package aws
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
@@ -14,8 +15,16 @@ import (
 type (
 	// Ec2Instance represents a list of EC2 instances by name tag and instance ID.
 	Ec2Instance struct {
-		ID   string
-		Name string
+		LaunchTime   time.Time
+		ID           string
+		Name         string
+		Architecture string
+		Hypervisor   string
+		ImageID      string
+		InstanceType string
+		Platform     string
+		EbsOptimized bool
+		EnaSupport   bool
 	}
 
 	// Tag represents a list of EC2 instance tags that we want to filter by.
@@ -76,8 +85,22 @@ func GetEC2Instances() ([]Ec2Instance, error) {
 			name := findName(instance)
 
 			collectedInstances = append(collectedInstances, Ec2Instance{
-				ID:   *instance.InstanceId,
-				Name: *name,
+				ID:           *instance.InstanceId,
+				Name:         *name,
+				Architecture: string(instance.Architecture),
+				Hypervisor:   string(instance.Hypervisor),
+				ImageID:      *instance.ImageId,
+				InstanceType: string(instance.InstanceType),
+				Platform: func() string {
+					v := string(instance.Platform)
+					if v == "" {
+						return "linux"
+					} else {
+						return v
+					}
+				}(),
+				EbsOptimized: *instance.EbsOptimized,
+				EnaSupport:   *instance.EnaSupport,
 			})
 		}
 	}
