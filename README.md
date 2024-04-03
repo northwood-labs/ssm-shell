@@ -1,3 +1,5 @@
+<div><img src="ssm-shell-art.jpg"></div>
+
 # SSM Shell for AWS Session Manager
 
 Simplifies the process of connecting to EC2 instances using AWS Session Manager when you have many instances.
