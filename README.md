@@ -1,25 +1,6 @@
-# “SSM Shell” for AWS SSM
+# SSM Shell for AWS Session Manager
 
 Simplifies the process of connecting to EC2 instances using AWS Session Manager when you have many instances.
-
-[![Go documentation](https://img.shields.io/badge/pkg.go.dev-documentation-informational?style=flat-square&logo=go)](https://pkg.go.dev/github.com/northwood-labs/ssm-shell)
-
-| Information     | Description                                                                                |
-|-----------------|--------------------------------------------------------------------------------------------|
-| **Owner(s)**    | [@northwood-labs](https://github.com/northwood-labs), [@skyzyx](https://github.com/skyzyx) |
-| **Go Versions** | 1.17                                                                                       |
-
-## Why AWS Session Manager?
-
-SSH is old-school, error-prone, and easy to get wrong.
-
-With the ever-shifting cybersecurity landscape, older ciphers and protocols being cracked over time, and the likelihood of losing SSH keys (or someone stealing them), there are newer, better ways of connecting to EC2 instances in the cloud. AWS Session Manager uses the _AWS Systems Manager_ (SSM) agent to allow you to connect to EC2 instances using the AWS CLI instead of SSH. I'm not going to dive into that here, but here are some links if you don't know what this is:
-
-* <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html>
-* <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-prerequisites.html>
-* <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-prereqs.html>
-
-If you work for a corporation with lots and lots of AWS accounts, your IT/DevOps/Cloud people are probably taking a look at this if they haven't started using it already.
 
 ## Why this project?
 
@@ -30,6 +11,23 @@ aws ssm start-session --target i-abcdef123456
 ```
 
 Given valid AWS credentials, this will hit the EC2 API first to retrieve a list of running instances, then help you select the instance to which to connect.
+
+### Why AWS Session Manager?
+
+<details>
+<summary>Read more…</summary><br>
+
+SSH is old-school, error-prone, and easy to get wrong.
+
+With the ever-shifting cybersecurity landscape, older ciphers and protocols being cracked over time, and the likelihood of losing SSH keys (or someone stealing them), there are newer, better ways of connecting to EC2 instances in the cloud. AWS Session Manager uses the _AWS Systems Manager_ (SSM) agent to allow you to connect to EC2 instances using the AWS CLI instead of SSH. I'm not going to dive into that here, but here are some links if you don't know what this is:
+
+* [Setting up Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html)
+* [Complete Session Manager prerequisites](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-prerequisites.html)
+* [Setting up AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-prereqs.html)
+
+If you work for a corporation with lots and lots of AWS accounts, your IT/DevOps/Cloud people are probably taking a look at this if they haven't started using it already.
+
+</details>
 
 ## Technical Prerequisites
 
@@ -49,6 +47,9 @@ This software plugs into the AWS CLI, allowing you to connect to the instances u
 brew install session-manager-plugin
 ```
 
+<details>
+<summary>Learn about macOS Gatekeeper…</summary><br>
+
 Next, you need to understand that macOS has an agent called [Gatekeeper](https://support.apple.com/en-us/HT202491) which prevents malware by requiring applications to be [notarized](https://developer.apple.com/news/?id=10032019a). The version of the package vended by Homebrew is not notarized. The version downloaded directly from AWS’s website **is**.
 
 (Why hasn't AWS taken distribution in standard OS package managers into their own hands?)
@@ -58,6 +59,8 @@ If you prefer to use Homebrew instead of downloading from the AWS website (like 
 ```bash
 sudo xattr -r -d com.apple.quarantine /usr/local/bin/session-manager-plugin
 ```
+
+</details>
 
 ### AWS Vault, AWS Okta, or similar
 
@@ -89,18 +92,18 @@ The **AWS CLI** is a command-line tool for interacting with AWS services. Creden
 
 ## Usage
 
-This will fetch the list of running instances over the EC2 API and respond with an interactive prompt. Hit `Tab` to pop into the interactive UI, and scroll until you find the instance you want. Press `Return`, and you will connect to that instance in your terminal.
+This will fetch the list of running instances over the EC2 API and present a table containing information about the running instances. Press ↑/↓ to select the instance to which you want to connect, then press `Return`, and you will connect to that instance in your terminal.
 
-<img src="https://github.com/northwood-labs/ssm-shell/raw/main/screenshot.png" width="886">
+<div><img src="ssm-shell@2x.png" alt="SSM Shell"></div>
 
-Use `Control+D` to exit your session.
+Use `Ctrl+D` to exit your session.
 
 ### Using AWS Vault, AWS Okta, or similar
 
 Assuming you have all of the things working as designed — EC2 instances with SSM agents, Session Manager permissions, local tools installed, etc. — this will simplify logging into instances.
 
 ```bash
-aws-vault exec {profile} -- ssm-shell connect
+aws-vault exec {profile} -- ssm-shell
 ```
 
 ### Using default AWS CLI profile
@@ -108,28 +111,5 @@ aws-vault exec {profile} -- ssm-shell connect
 Or, if you have credentials setup with `aws configure` using the `default` profile, you can rely on that as well.
 
 ```bash
-ssm-shell connect
-```
-
-### Filtering by instance attributes
-
-Attribute-based filters are processed server-side, and can be used to reduce the number of instances you are presented with. You can apply zero or more attribute-filters. The list of valid attributes can be found at <https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instances.html>.
-
-For attributes, the valid conditions are: `==` (equals).
-
-```bash
-ssm-shell connect --filter architecture==arm64
-ssm-shell connect --filter architecture==arm64 --filter availability-zone==us-west-2b
-```
-
-### Filtering by tags
-
-Tag-based filters are processed server-side for `==` (equals) conditions, while `=~` (contains) and `=^` (starts with) conditions are processed client-side. You can apply zero or more tag-filters. Like filters, they can be used to reduce the number of instances you are presented with.
-
-For tags, the valid conditions are: `==` (equals), `=~` (contains), and `=^` (starts with).
-
-```bash
-ssm-shell connect --tag Application==github-actions
-ssm-shell connect --tag Application==github-actions --tag Name=^testing
-ssm-shell connect --tag Application==github-actions --tag Name=^testing --tag Name=~amzn2
+ssm-shell
 ```

@@ -1,4 +1,4 @@
-package main
+package aws
 
 import (
 	"fmt"
@@ -6,7 +6,13 @@ import (
 	"os/exec"
 )
 
-func runCommand(args []string) {
+const (
+	CondEquals     = "=="
+	CondContains   = "=~"
+	CondStartsWith = "=^"
+)
+
+func RunCommand(args []string) {
 	cmd := exec.Command(args[0], args[1:]...) // lint:allow_possible_insecure
 
 	cmd.Stdin = os.Stdin

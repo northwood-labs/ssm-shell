@@ -1,2 +1,42 @@
-bin/*
-dist/*
+# goplicate-start:always
+_*.out
+_*.txt
+_/
+_cache_/*
+.dccache
+*.cache.json
+*.zip
+dist/
+# goplicate-end:always
+
+# goplicate-start:go
+*.pgo
+*.pprof
+*.test
+callgrind.*
+# goplicate-end:go
+
+# goplicate-start:terraform
+.infracost
+.terraform
+.terraform.lock.hcl
+.terraformrc
+*_override.tf
+*_override.tf.json
+_provider.tf
+*.tfstate*
+**/.terraform/*
+override.tf
+override.tf.json
+secrets.auto.tfvars
+terraform
+terraform.d/
+terraform.rc
+tests/.test-data
+tests/**/.test-data
+tests/**/terraform.*
+tests/**/terratest-*
+tests/terraform.*
+tests/terratest-*
+tfplan
+# goplicate-end:terraform
