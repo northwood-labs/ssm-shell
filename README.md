@@ -33,7 +33,7 @@ If you work for a corporation with lots and lots of AWS accounts, your IT/DevOps
 
 ### AWS CLI v2
 
-If you are on macOS, this is as simple as:
+Install [aws/aws-cli](https://github.com/aws/aws-cli). If you are on macOS, this is as simple as:
 
 ```bash
 brew install awscli
@@ -41,7 +41,7 @@ brew install awscli
 
 ### AWS Session Manager Plugin
 
-This software plugs into the AWS CLI, allowing you to connect to the instances using it. If you are on macOS, this is a 2-step process.
+Install [aws/session-manager-plugin](https://github.com/aws/session-manager-plugin). This software plugs into the AWS CLI, allowing you to connect to the instances using it. If you are on macOS, this is a 2-step process.
 
 ```bash
 brew install session-manager-plugin
