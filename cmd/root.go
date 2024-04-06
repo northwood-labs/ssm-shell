@@ -43,15 +43,6 @@ var (
 			BorderStyle(lipgloss.NormalBorder()).
 			BorderForeground(lipgloss.Color("240"))
 
-	helpText = lipgloss.NewStyle().
-			Border(lipgloss.RoundedBorder()).
-			BorderForeground(lipgloss.Color("99")).
-			Padding(1, 2) // lint:allow_raw_number
-
-	style = lipgloss.NewStyle().
-		Bold(true).
-		Border(lipgloss.RoundedBorder())
-
 	logger = log.NewWithOptions(os.Stderr, log.Options{
 		ReportTimestamp: true,
 		TimeFormat:      time.Kitchen,

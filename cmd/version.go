@@ -28,6 +28,16 @@ import (
 )
 
 var (
+	helpText = lipgloss.NewStyle().
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(lipgloss.Color("99")).
+			Padding(1, 2) // lint:allow_raw_number
+
+	headerStyle = lipgloss.NewStyle().
+			Bold(true).
+			Border(lipgloss.RoundedBorder()).
+			Padding(0, 1) // lint:allow_raw_number
+
 	// Version represents the version of the software.
 	Version = "dev"
 
@@ -49,7 +59,7 @@ var (
 		Long: helpText.Render(`Long-form version information, including the build commit hash, build date, Go
 version, and external dependencies.`),
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println(style.Render(" BUILD INFO "))
+			fmt.Println(headerStyle.Render("BUILD INFO"))
 
 			t := table.New().
 				Border(lipgloss.RoundedBorder()).
@@ -79,7 +89,7 @@ version, and external dependencies.`),
 			//----------------------------------------------------------------------
 
 			if buildInfo, ok := debug.ReadBuildInfo(); ok {
-				fmt.Println(style.Render(" DEPENDENCIES "))
+				fmt.Println(headerStyle.Render("DEPENDENCIES"))
 
 				td := table.New().
 					Border(lipgloss.RoundedBorder()).
