@@ -3,7 +3,7 @@ module github.com/northwood-labs/ssm-shell
 go 1.22.0
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.32.7
+	github.com/aws/aws-sdk-go-v2 v1.32.8
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.198.1
 	github.com/charmbracelet/bubbles v0.20.0
 	github.com/charmbracelet/bubbletea v1.2.4
