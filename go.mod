@@ -11,7 +11,7 @@ require (
 	github.com/charmbracelet/bubbletea v1.3.6
 	github.com/charmbracelet/huh/spinner v0.0.0-20240328185852-590ecabc34b9
 	github.com/charmbracelet/lipgloss v1.1.0
-	github.com/charmbracelet/log v0.4.1
+	github.com/charmbracelet/log v0.4.2
 	github.com/northwood-labs/awsutils v0.0.0-20240315061544-28570bf7115b
 	github.com/northwood-labs/golang-utils/archstring v0.0.0-20240301221220-6be250811dab
 	github.com/northwood-labs/golang-utils/exiterrorf v0.0.0-20240301221220-6be250811dab
