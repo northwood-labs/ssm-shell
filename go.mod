@@ -6,7 +6,7 @@ toolchain go1.24.1
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.39.6
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.268.0
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.270.0
 	github.com/charmbracelet/bubbles v0.21.0
 	github.com/charmbracelet/bubbletea v1.3.10
 	github.com/charmbracelet/huh/spinner v0.0.0-20240328185852-590ecabc34b9
