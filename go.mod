@@ -15,7 +15,7 @@ require (
 	github.com/northwood-labs/awsutils v0.0.0-20240315061544-28570bf7115b
 	github.com/northwood-labs/golang-utils/archstring v0.0.0-20240301221220-6be250811dab
 	github.com/northwood-labs/golang-utils/exiterrorf v0.0.0-20240301221220-6be250811dab
-	github.com/spf13/cobra v1.10.1
+	github.com/spf13/cobra v1.10.2
 )
 
 require (
